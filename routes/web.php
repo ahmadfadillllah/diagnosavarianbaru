@@ -59,7 +59,7 @@ Route::get('/dashboard/users/pakar/delete/{id}', [UsersController::class, 'pakar
 Route::get('/dashboard/users/konsultasi', [UsersController::class, 'konsultasi'])->name('users.konsultasi');
 Route::get('/dashboard/users/konsultasi/delete/{id}', [UsersController::class, 'konsultasidestroy']);
 Route::get('/dashboard/users/konsultasi/proses/{id}', [UsersController::class, 'konsultasiproses']);
-Route::get('/dashboard/users/konsultasi/proses/cek/{id}', [UsersController::class, 'konsultasicek']);
+Route::post('/dashboard/users/konsultasi/proses/cek', [UsersController::class, 'konsultasicek'])->name('users.solusi');
 
 
 Route::get('/dashboard/gejala', [GejalaController::class, 'index'])->name('gejala.index');

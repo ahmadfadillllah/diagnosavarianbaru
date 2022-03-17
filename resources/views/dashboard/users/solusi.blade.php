@@ -32,27 +32,24 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Pilih Gejala</h4>
+                                <h4 class="card-title">Gejala yang nampak pada diri</h4>
                             </div>
-                            <form action="/dashboard/users/konsultasi/proses/cek" method="POST">
-                                @csrf
-                                <div class="card-body">
-                                    <div class="demo-inline-spacing md-12">
-                                        @foreach ($gejala as $item)
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="checkbox" name="daftargejala[]" value="{{ $item->kode }}"/>
-                                                    <label class="form-check-label" for="inlineCheckbox1">{{ $item->nama }}</label>
-                                                </div>
-                                            </div>
-                                          </div>
-
-                                        @endforeach
-                                        <button type="submit" class="btn btn-outline-info">Cek Gejala</button>                            </div>
-                                    </div>
+                            <div class="card-body">
+                                <div class="demo-inline-spacing md-12">
+                                    [masih tahap pengembangan]
                                 </div>
-                            </form>
+                            </div>
+                            <div class="card-header">
+                                <h4 class="card-title">Hasil Diagnosa</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="demo-inline-spacing md-12">
+                                    {{ $keterangan->solusi }}
+                                    <a href="{{ route('dashboard.index') }}" class="btn btn-outline-info">Kembali</a>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>

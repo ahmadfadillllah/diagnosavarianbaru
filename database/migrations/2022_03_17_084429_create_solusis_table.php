@@ -15,9 +15,9 @@ class CreateSolusisTable extends Migration
     {
         Schema::create('solusis', function (Blueprint $table) {
             $table->id();
-            $table->string('kode');
+            $table->string('kode')->unique();
             $table->string('nama');
-            $table->string('solusi');
+            $table->text('solusi');
             $table->timestamps();
         });
     }

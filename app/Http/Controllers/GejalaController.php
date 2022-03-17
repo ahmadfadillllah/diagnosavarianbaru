@@ -59,7 +59,7 @@ class GejalaController extends Controller
     {
 
         $gejala = new Gejala;
-        $gejala->nama = Str::of($request->nama)->ucfirst();
+        $gejala->nama = Str::headline($request->nama);
         $gejala->save();
 
         if($gejala){
@@ -105,7 +105,7 @@ class GejalaController extends Controller
         $affected = DB::table('gejalas')
               ->where('id', $id)
               ->update(
-                  ['nama' => Str::of($request->nama)->ucfirst(),
+                  ['nama' => Str::headline($request->nama),
                   ]
                 );
 

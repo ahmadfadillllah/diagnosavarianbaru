@@ -127,12 +127,97 @@ class UsersController extends Controller
         return view('dashboard.users.proseskonsultasi', ['users' => $users, 'gejala' => $gejala]);
     }
 
-    public function konsultasicek($id, Request $request)
+    public function konsultasicek(Request $request)
     {
-        $users = Konsultasi::find($id);
-        $solusi = Solusi::all();
 
-        return redirect()->route('users.konsultasi')->with('info', 'Hasil Diagnosa Penyakit');
+        if(
+            $gejala = in_array('G001', $request->daftargejala) &&
+            in_array('G007', $request->daftargejala) &&
+            in_array('G009', $request->daftargejala) &&
+            in_array('G010', $request->daftargejala) &&
+            in_array('G014', $request->daftargejala) &&
+            in_array('G022', $request->daftargejala) &&
+            in_array('G023', $request->daftargejala) &&
+            in_array('G025', $request->daftargejala) &&
+            in_array('G038', $request->daftargejala)
+        ){
+            $keterangan = $users = DB::table('solusis')
+            ->select('solusi')->where('kode', 'S001')
+            ->first();
+
+            return view('dashboard.users.solusi', ['keterangan' => $keterangan, 'gejala' => $gejala]);
+        }
+
+        if(
+            $gejala = in_array('G007', $request->daftargejala) &&
+            in_array('G009', $request->daftargejala) &&
+            in_array('G010', $request->daftargejala) &&
+            in_array('G011', $request->daftargejala) &&
+            in_array('G018', $request->daftargejala)
+        ){
+            $keterangan = $users = DB::table('solusis')
+            ->select('solusi')->where('kode', 'S002')
+            ->first();
+
+            return view('dashboard.users.solusi', ['keterangan' => $keterangan, 'gejala' => $gejala]);
+        }
+
+        if(
+            $gejala = in_array('G003', $request->daftargejala) &&
+            in_array('G004', $request->daftargejala) &&
+            in_array('G012', $request->daftargejala) &&
+            in_array('G017', $request->daftargejala) &&
+            in_array('G018', $request->daftargejala) &&
+            in_array('G016', $request->daftargejala) &&
+            in_array('G020', $request->daftargejala) &&
+            in_array('G034', $request->daftargejala)
+        ){
+            $keterangan = $users = DB::table('solusis')
+            ->select('solusi')->where('kode', 'S003')
+            ->first();
+
+            return view('dashboard.users.solusi', ['keterangan' => $keterangan, 'gejala' => $gejala]);
+        }
+
+        if(
+            $gejala = in_array('G006', $request->daftargejala) &&
+            in_array('G013', $request->daftargejala) &&
+            in_array('G015', $request->daftargejala) &&
+            in_array('G016', $request->daftargejala)
+        ){
+            $keterangan = $users = DB::table('solusis')
+            ->select('solusi')->where('kode', 'S004')
+            ->first();
+
+            return view('dashboard.users.solusi', ['keterangan' => $keterangan, 'gejala' => $gejala]);
+        }
+
+        if(
+
+            $gejala = in_array('G010', $request->daftargejala) &&
+            in_array('G013', $request->daftargejala) &&
+            in_array('G016', $request->daftargejala)
+        ){
+            $keterangan = $users = DB::table('solusis')
+            ->select('solusi')->where('kode', 'S005')
+            ->first();
+
+            return view('dashboard.users.solusi', ['keterangan' => $keterangan, 'gejala' => $gejala]);
+        }
+
+        if(
+            $gejala = in_array('G001', $request->daftargejala) &&
+            in_array('G039', $request->daftargejala)
+        ){
+            $keterangan = $users = DB::table('solusis')
+            ->select('solusi')->where('kode', 'S006')
+            ->first();
+
+            return view('dashboard.users.solusi', ['keterangan' => $keterangan, 'gejala' => $gejala]);
+        }
+
+        return redirect()->route('users.konsultasi')->with('info', 'Solusi tidak dapat diketahui');
+
     }
 
     public function konsultasidestroy($id)
