@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\UsersController;
 use App\Models\Gejala;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,8 +33,8 @@ Route::post('/post-login', [AuthController::class, 'postlogin'])->name('postlogi
 
 Route::get('/form', [DashboardController::class, 'form'])->name('form');
 Route::post('/post-form', [DashboardController::class, 'postform'])->name('postform');
-
-Route::get('/form/{id}/gejala', [DashboardController::class, 'gejala']);
+Route::get('/form/gejala/{id}', [DashboardController::class, 'gejala'])->name('form.gejala');
+Route::post('/form/proses/cek/{id}', [DashboardController::class, 'konsultasicek'])->name('form.solusi');
 
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/post-register', [AuthController::class, 'postregister'])->name('postregister');

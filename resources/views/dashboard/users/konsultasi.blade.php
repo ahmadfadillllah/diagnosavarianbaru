@@ -75,7 +75,7 @@
                                             <td>
                                                 <a href="/dashboard/users/konsultasi/proses/{{  $item->id }}"
                                                     class="btn btn-info btn-sm">Proses</a>
-                                                <a href="/dashboard/users/konsultasi/proses/{{  $item->id }}"
+                                                <a href="/dashboard/users/konsultasi/delete/{{  $item->id }}"
                                                     onclick="return confirm('Yakin ingin menghapus gejala tersebut ?')"
                                                     class="btn btn-danger btn-sm">Delete</a>
                                             </td>
