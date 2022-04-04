@@ -13,16 +13,16 @@
                    <nav id="mobile-menu">
                       <ul>
                            <li><a href="/">Beranda</a></li>
-                         <li><a href="about.html">Profil</a></li>
+                         <li><a href="/dashboard/profile">Profil</a></li>
+                         <li><a href="{{ route('gejala') }}">Gejala</a></li>
                          <li class="has-dropdown">
-                           <a href="index.html">Informasi</a>
+                           <a href="#">Extra</a>
                            <ul class="submenu">
-                              <li><a href="index.html">Berita</a></li>
-                              <li><a href="index-2.html">Pencegahan</a></li>
-                              <li><a href="index-3.html">Konsultasi</a></li>
+                              <li><a href="https://covid19.who.int/?gclid=CjwKCAjwrqqSBhBbEiwAlQeqGjOlm65rrLvqYcokn9mndUE4fzbRjzMeaCwp9kHxrdLNGYUHy-TG6xoC9wgQAvD_BwE">Informasi</a></li>
+                              <li><a href="{{ route('form') }}">Konsultasi</a></li>
                            </ul>
                         </li>
-                         <li><a href="about.html">Kontak Kami</a></li>
+                         <li><a href="{{ route('contact') }}">Kontak Kami</a></li>
                       </ul>
                    </nav>
                 </div>
@@ -59,14 +59,14 @@
        </div>
        <div class="sidebar__content">
           <div class="logo mb-40">
-             <a href="index.html">
-             <img src="{{ asset('wetland') }}/assets/img/logo/logo.png" alt="logo">
+             <a href="#">
+                <h3>Sistem Pakar</h3>
              </a>
           </div>
           <div class="mobile-menu mobile-menu-2"></div>
           <div class="sidebar__info mt-350">
-             <a href="#" class="w-btn w-btn-blue-2 w-btn-4 d-block mb-15 mt-15">login</a>
-             <a href="#" class="w-btn w-btn-blue d-block">sign up</a>
+            <a href="{{ route('login') }}" class="w-btn w-btn-transparent w-btn-transparent-2">login</a>
+            <a href="{{ route('register') }}" class="w-btn w-btn-blue w-btn-blue-header ml-30">register</a>
           </div>
        </div>
     </div>

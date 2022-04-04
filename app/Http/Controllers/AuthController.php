@@ -68,4 +68,15 @@ class AuthController extends Controller
             return redirect()->route('register');
         }
     }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login')->with('info', 'Anda telah logout');
+    }
 }
