@@ -36,6 +36,7 @@
                             @endif
                             <form action="{{ route('postform') }}" method="POST">
                                 @csrf
+                                <p>Inputkan data diri anda!</p>
                                 <div class="sign__input-wrapper mb-25">
                                     <h5>Nama</h5>
                                     <div class="sign__input">
@@ -47,7 +48,7 @@
                                     @enderror
                                 </div>
                                 <div class="sign__input-wrapper mb-25">
-                                    <h5>Work email</h5>
+                                    <h5>Email</h5>
                                     <div class="sign__input">
                                         <input type="email" name="email" placeholder="e-mail address">
                                         <i class="fal fa-envelope"></i>
