@@ -22,7 +22,7 @@
                         <span class="hero__pre-title">Selamat Datang</span>
                         <h2 class="hero__title-2">Aplikasi Sistem Pakar</h2>
                         <p>Penyakit corona virus pendeteksi varian baru.</p>
-                        <a href="{{ route('form') }}" class="w-btn w-btn-blue w-btn-7 w-btn-6">Mulai </a>
+                        <a href="{{ route('form') }}" class="w-btn w-btn-blue w-btn-7 w-btn-6">Mulai Berkonsultasi</a>
 
                         <div class="hero__client mt-60">
                             <ul>
