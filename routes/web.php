@@ -39,12 +39,13 @@ Route::post('/post-login', [AuthController::class, 'postlogin'])->name('postlogi
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::get('/form', [DashboardController::class, 'form'])->name('form');
+Route::post('/post-form', [DashboardController::class, 'postform'])->name('postform');
+Route::get('/form/gejala/{id}', [DashboardController::class, 'gejala'])->name('form.gejala');
+Route::post('/form/proses/cek/{id}', [DashboardController::class, 'konsultasicek'])->name('form.solusi');
+
 Route::group(['middleware' => ['auth', 'checkRole:admin,pakar']], function(){
 
-    Route::get('/form', [DashboardController::class, 'form'])->name('form');
-    Route::post('/post-form', [DashboardController::class, 'postform'])->name('postform');
-    Route::get('/form/gejala/{id}', [DashboardController::class, 'gejala'])->name('form.gejala');
-    Route::post('/form/proses/cek/{id}', [DashboardController::class, 'konsultasicek'])->name('form.solusi');
 
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/post-register', [AuthController::class, 'postregister'])->name('postregister');

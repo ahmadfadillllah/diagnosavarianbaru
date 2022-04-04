@@ -43,12 +43,12 @@
                                     {{ $konsultasi->alamat }} <br>
                                 </p>
                             </div>
-                            <div class="sign__input-wrapper mb-25">
+                            {{-- <div class="sign__input-wrapper mb-25">
                                 <strong>Gejala yang nampak pada diri</strong>
                                 <p>{{ $gejala1->nama }} <br>
                                     {{ $gejala2->nama }}
                                 </p>
-                            </div>
+                            </div> --}}
                                 <div class="sign__input-wrapper mb-25">
                                     <strong>Hasil Diagnosa</strong>
                                     <p>{{ $keterangan->solusi }}</p>
