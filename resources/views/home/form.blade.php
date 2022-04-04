@@ -95,7 +95,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <button class="w-btn w-btn-11 w-100"> <span></span> Proses</button>
+                                <button class="w-btn w-btn-11 w-100"> <span></span> Daftar</button>
                             </form>
                         </div>
                     </div>
