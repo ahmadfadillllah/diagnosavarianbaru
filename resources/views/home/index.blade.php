@@ -41,16 +41,8 @@
                 <div class="col-xxl-6 offset-xxl-1 col-xl-6">
                     <div class="hero__thumb-2 mt-80">
                         <div class="hero__thumb-inner p-relative ml-90">
-                            <img class="hero-2-thumb"
-                                src="{{ asset('wetland') }}/assets/img/hero/home-2/hero-2-thumb.png" alt="">
-                            <img class="hero-2-girl" src="{{ asset('wetland') }}/assets/img/hero/home-2/hero-2-girl.png"
-                                alt="">
-                            <img class="hero-2-thumb-sm"
-                                src="{{ asset('wetland') }}/assets/img/hero/home-2/hero-2-thumb-sm.png" alt="">
-                            <img class="hero-2-thumb-sm-2"
-                                src="{{ asset('wetland') }}/assets/img/hero/home-2/hero-2-thumb-sm-2.png" alt="">
-                            <img class="hero-2-thumb-sm-3"
-                                src="{{ asset('wetland') }}/assets/img/hero/home-2/hero-2-thumb-sm-3.png" alt="">
+                            <img class="hero-2-girl" src="{{ asset('wetland') }}/assets/img/hero/home-2/3658058.jpg"
+                                alt="" width="100%" style="border-radius: 70px">
                             <img class="hero-2-circle"
                                 src="{{ asset('wetland') }}/assets/img/hero/home-2/hero-2-circle.png" alt="">
                             <img class="hero-2-circle-2"
