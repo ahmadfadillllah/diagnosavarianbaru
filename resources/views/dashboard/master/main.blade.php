@@ -37,24 +37,19 @@
             <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('dashboard.index') }}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Pages">Dashboard</span></a>
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="user"></i><span class="menu-title text-truncate" data-i18n="User">User</span></a>
                 <ul class="menu-content">
+                    @if (Auth::user()->role == 'admin')
                     <li><a class="d-flex align-items-center" href="{{ route('users.admin') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Admin</span></a>
                     </li>
                     <li><a class="d-flex align-items-center" href="{{ route('users.pakar') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Pakar</span></a>
                     </li>
+                    @endif
                     <li><a class="d-flex align-items-center" href="{{ route('users.konsultasi') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Konsultasi</span></a>
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="User">Gejala</span></a>
-                <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="{{ route('gejala.omicron') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Varian Omicron</span></a>
-                    </li>
-                    <li><a class="d-flex align-items-center" href="{{ route('gejala.delta') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Varian Delta</span></a>
-                    </li>
-                    <li><a class="d-flex align-items-center" href="{{ route('gejala.index') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Semua Gejala</span></a>
-                    </li>
-                </ul>
-            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('klasifikasi.index') }}"><i data-feather="file-text"></i><span class="file-text" data-i18n="Pages">Klasifikasi</span></a>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('solusi.index') }}"><i data-feather="file-text"></i><span class="file-text" data-i18n="Pages">Solusi</span></a>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('gejala.index') }}"><i data-feather="file-text"></i><span class="file-text" data-i18n="Pages">Gejala</span></a>
 
         </ul>
     </div>

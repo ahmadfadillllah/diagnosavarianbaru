@@ -10,60 +10,20 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Daftar Gejala</h2>
+                        <h2 class="content-header-title float-start mb-0">Daftar Solusi</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a>
                                 </li>
-                                <li class="breadcrumb-item active">List Gejala
+                                <li class="breadcrumb-item active">List Solusi
                                 </li>
                             </ol>
                         </div>
                     </div>
                 </div>
+
             </div>
 
-            <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
-                <div class="mb-1 breadcrumb-right">
-                    <div class="dropdown">
-                        <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                                data-feather="plus">T</i></button>
-                        <div class="dropdown-menu dropdown-menu-end">
-                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#tambahgejala"><i
-                                    class="me-1" data-feather="check-square"></i><span class="align-middle">Tambah
-                                    Gejala</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal Tambah Gejala -->
-            <div class="modal fade" id="tambahgejala" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Tambahkan Gejala</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action={{ route('gejala.store') }} method="POST">
-                                @csrf
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Nama Gejala</label>
-                                    <input type="text" class="form-control" name="nama" required>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="content-body">
                 <!-- Contextual classes start -->
                 <div class="row" id="table-contextual">
@@ -72,7 +32,8 @@
                         <div class="card">
                             <div class="card-header">
 
-                                <h4 class="card-title">Daftar Gejala Varian Delta</h4>
+                                <h4 class="card-title">Daftar Solusi</h4>
+
                                 @if (session('info'))
                                 <div class="alert alert-secondary alert-dismissible fade show" role="alert">
                                     <strong>Info!</strong> {{ session('info') }}
@@ -80,49 +41,64 @@
                                         aria-label="Close"></button>
                                 </div>
                                 @endif
+                                <p>@error('kode')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror</p>
                             </div>
+
                             <div class="table-responsive">
 
+                                </div>
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Kode Gejala</th>
-                                            <th>Nama Gejala</th>
+                                            <th>Kode</th>
+                                            <th>Klasifikasi</th>
+                                            <th>Solusi</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($gejala as $item)
+                                        @foreach ($solusi as $item)
                                         <tr class="table-default">
                                             <td>{{ $item->kode }}</td>
-                                            <td>{{ $item->nama }}</td>
+                                            <td>{{ $item->id_klasifikasi }}</td>
+                                            <td>{{ $item->solusi }}</td>
                                             <td>
-                                                <a href="/dashboard/gejala/{{ $item->id }}/edit" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editgejala">Edit</a>
-                                                <a href="/dashboard/gejala/{{ $item->id }}/delete"
-                                                    onclick="return confirm('Yakin ingin menghapus gejala tersebut ?')"
-                                                    class="btn btn-danger btn-sm">Delete</a>
+                                                <a href="/dashboard/solusi/edit/{{ $item->id }}" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editsolusi{{ $item->id }}">Edit</a>
+
                                             </td>
                                         </tr>
 
-                                        <!-- Modal Edit Gejala -->
-                                        <div class="modal fade" id="editgejala" data-bs-backdrop="static"
+                                        <!-- Modal Edit solusi -->
+                                        <div class="modal fade" id="editsolusi{{ $item->id }}" data-bs-backdrop="static"
                                             data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                             aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="staticBackdropLabel">Edit
-                                                            Gejala</h5>
+                                                            solusi</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                             aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="/dashboard/gejala/{{ $item->id }}/update" method="POST">
+                                                        <form action="/dashboard/solusi/update/{{ $item->id }}" method="POST">
                                                             @csrf
-                                                            <div class="mb-3">
-                                                                <label for="recipient-name" class="col-form-label">Nama
-                                                                    Gejala</label>
-                                                                <input type="text" class="form-control" name="nama" value="{{ $item->nama }}"
+                                                            <div class="mb-1">
+                                                                <label for="recipient-name" class="col-form-label">Kode</label>
+                                                                <input type="text" class="form-control" name="kode" value="{{ $item->kode }}"
+                                                                    readonly>
+                                                            </div>
+                                                            <div class="mb-1">
+                                                                <label for="recipient-name" class="col-form-label">ID Klasifikasi</label>
+
+                                                                <input type="text" class="form-control" name="id_klasifikasi" value="{{ $item->id_klasifikasi }}"
+                                                                    readonly>
+                                                            </div>
+                                                            <div class="mb-1">
+                                                                <label for="recipient-name" class="col-form-label">Solusi</label>
+                                                                <input type="text" class="form-control" name="solusi" value="{{ $item->solusi }}"
                                                                     required>
                                                             </div>
                                                             <div class="modal-footer">

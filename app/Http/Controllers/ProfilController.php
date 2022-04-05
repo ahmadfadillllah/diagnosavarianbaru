@@ -25,7 +25,7 @@ class ProfilController extends Controller
         if($affected){
             return redirect('/')->with('info', 'Akun anda telah di nonaktifkan');
         }else{
-            return redirect('')->route('profil.index')->with('info', 'Akun anda telah di nonaktifkan');
+            return redirect()->route('profil.index')->with('info', 'Akun anda gagal di nonaktifkan');
         }
     }
 }

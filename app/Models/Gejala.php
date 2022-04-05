@@ -9,5 +9,7 @@ class Gejala extends Model
 {
     use HasFactory;
 
+    protected $table = 'gejala';
+
     protected $guarded = [];
 }

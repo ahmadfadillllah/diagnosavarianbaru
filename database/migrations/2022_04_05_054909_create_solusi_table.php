@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKonsultasisTable extends Migration
+class CreateSolusiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateKonsultasisTable extends Migration
      */
     public function up()
     {
-        Schema::create('konsultasis', function (Blueprint $table) {
+        Schema::create('solusi', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('jenis_kelamin');
-            $table->string('no_hp');
-            $table->string('alamat');
+            $table->string('kode');
+            $table->string('id_klasifikasi');
+            $table->text('solusi');
             $table->timestamps();
+
+            $table->foreign('id_klasifikasi')->references('kode')->on('klasifikasi');
         });
     }
 
@@ -31,6 +31,6 @@ class CreateKonsultasisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('konsultasis');
+        Schema::dropIfExists('solusi');
     }
 }

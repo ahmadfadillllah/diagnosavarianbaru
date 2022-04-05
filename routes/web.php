@@ -6,7 +6,8 @@ use App\Http\Controllers\GejalaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\UsersController;
-use App\Models\Gejala;
+use App\Http\Controllers\KlasifikasiController;
+use App\Http\Controllers\SolusiController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -39,6 +40,9 @@ Route::post('/post-login', [AuthController::class, 'postlogin'])->name('postlogi
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/post-register', [AuthController::class, 'postregister'])->name('postregister');
+
 Route::get('/form', [DashboardController::class, 'form'])->name('form');
 Route::post('/post-form', [DashboardController::class, 'postform'])->name('postform');
 Route::get('/form/gejala/{id}', [DashboardController::class, 'gejala'])->name('form.gejala');
@@ -47,8 +51,6 @@ Route::post('/form/proses/cek/{id}', [DashboardController::class, 'konsultasicek
 Route::group(['middleware' => ['auth', 'checkRole:admin,pakar']], function(){
 
 
-    Route::get('/register', [AuthController::class, 'register'])->name('register');
-    Route::post('/post-register', [AuthController::class, 'postregister'])->name('postregister');
 
     Route::get('/dashboard/index', [DashboardController::class, 'index'])->name('dashboard.index');
 
@@ -73,16 +75,22 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,pakar']], function(){
     Route::get('/dashboard/users/konsultasi/proses/{id}', [UsersController::class, 'konsultasiproses']);
     Route::post('/dashboard/users/konsultasi/proses/cek', [UsersController::class, 'konsultasicek'])->name('users.solusi');
 
+    //Klasifikasi
+    Route::get('/dashboard/klasifikasi', [KlasifikasiController::class, 'index'])->name('klasifikasi.index');
+    Route::get('/dashboard/klasifikasi/edit/{id}', [KlasifikasiController::class, 'edit']);
+    Route::post('/dashboard/klasifikasi/update/{id}', [KlasifikasiController::class, 'update']);
 
+    //Solusi
+    Route::get('/dashboard/solusi', [SolusiController::class, 'index'])->name('solusi.index');
+    Route::get('/dashboard/solusi/edit/{id}', [SolusiController::class, 'edit']);
+    Route::post('/dashboard/solusi/update/{id}', [SolusiController::class, 'update']);
+
+    //Gejala
     Route::get('/dashboard/gejala', [GejalaController::class, 'index'])->name('gejala.index');
-    Route::get('/dashboard/gejala/omicron', [GejalaController::class, 'omicron'])->name('gejala.omicron');
-    Route::get('/dashboard/gejala/delta', [GejalaController::class, 'delta'])->name('gejala.delta');
-
-
     Route::post('/dashboard/gejala/store', [GejalaController::class, 'store'])->name('gejala.store');
-    Route::get('/dashboard/gejala/{id}/delete', [GejalaController::class, 'destroy']);
-    Route::get('/dashboard/gejala/{id}/edit', [GejalaController::class, 'edit']);
-    Route::post('/dashboard/gejala/{id}/update', [GejalaController::class, 'update']);
+    Route::get('/dashboard/gejala/delete/{id}', [GejalaController::class, 'destroy']);
+    Route::get('/dashboard/gejala/edit/{id}', [GejalaController::class, 'edit']);
+    Route::post('/dashboard/gejala/update/{id}', [GejalaController::class, 'update']);
 });
 
 

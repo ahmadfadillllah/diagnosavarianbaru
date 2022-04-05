@@ -21,9 +21,12 @@
                         </div>
                     </div>
                 </div>
+
             </div>
 
+
             <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
+
                 <div class="mb-1 breadcrumb-right">
                     <div class="dropdown">
                         <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button"
@@ -34,8 +37,10 @@
                                     class="me-1" data-feather="check-square"></i><span class="align-middle">Tambah
                                     Gejala</span></a>
                         </div>
+
                     </div>
                 </div>
+
             </div>
 
             <!-- Modal Tambah Gejala -->
@@ -50,6 +55,10 @@
                         <div class="modal-body">
                             <form action={{ route('gejala.store') }} method="POST">
                                 @csrf
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Kode Gejala</label>
+                                    <input type="text" class="form-control" name="kode" required>
+                                </div>
                                 <div class="mb-3">
                                     <label for="recipient-name" class="col-form-label">Nama Gejala</label>
                                     <input type="text" class="form-control" name="nama" required>
@@ -73,6 +82,7 @@
                             <div class="card-header">
 
                                 <h4 class="card-title">Daftar Gejala</h4>
+
                                 @if (session('info'))
                                 <div class="alert alert-secondary alert-dismissible fade show" role="alert">
                                     <strong>Info!</strong> {{ session('info') }}
@@ -80,9 +90,14 @@
                                         aria-label="Close"></button>
                                 </div>
                                 @endif
+                                <p>@error('kode')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror</p>
                             </div>
+
                             <div class="table-responsive">
 
+                                </div>
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -97,15 +112,15 @@
                                             <td>{{ $item->kode }}</td>
                                             <td>{{ $item->nama }}</td>
                                             <td>
-                                                <a href="/dashboard/gejala/{{ $item->id }}/edit" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editgejala">Edit</a>
-                                                <a href="/dashboard/gejala/{{ $item->id }}/delete"
+                                                <a href="/dashboard/gejala/edit/{{ $item->id }}" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editgejala{{ $item->id }}">Edit</a>
+                                                <a href="/dashboard/gejala/delete/{{ $item->id }}"
                                                     onclick="return confirm('Yakin ingin menghapus gejala tersebut ?')"
                                                     class="btn btn-danger btn-sm">Delete</a>
                                             </td>
                                         </tr>
 
                                         <!-- Modal Edit Gejala -->
-                                        <div class="modal fade" id="editgejala" data-bs-backdrop="static"
+                                        <div class="modal fade" id="editgejala{{ $item->id }}" data-bs-backdrop="static"
                                             data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                             aria-hidden="true">
                                             <div class="modal-dialog">
@@ -117,7 +132,7 @@
                                                             aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="/dashboard/gejala/{{ $item->id }}/update" method="POST">
+                                                        <form action="/dashboard/gejala/update/{{ $item->id }}" method="POST">
                                                             @csrf
                                                             <div class="mb-3">
                                                                 <label for="recipient-name" class="col-form-label">Nama

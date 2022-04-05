@@ -23,67 +23,26 @@ class GejalaController extends Controller
         return view('dashboard.gejala.index', compact('gejala'));
     }
 
-    public function omicron()
-    {
-        //
-        $gejala = Gejala::all()->whereBetween('kode', ['G001', 'G023']);
-
-        return view('dashboard.gejala.omicron', compact('gejala'));
-    }
-
-    public function delta()
-    {
-        //
-        $gejala = Gejala::all()->whereBetween('kode', ['G024', 'G039']);;
-
-        return view('dashboard.gejala.delta', compact('gejala'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
 
+        $validated = $request->validate([
+            'kode' => 'required|unique:gejala',
+            'gejala' => 'required',
+        ]);
+
         $gejala = new Gejala;
+        $gejala->kode = $request->kode;
         $gejala->nama = Str::headline($request->nama);
         $gejala->save();
 
         if($gejala){
             return redirect()->route('gejala.index')->with('info', 'Gejala Telah ditambahkan');
         }
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
@@ -92,17 +51,10 @@ class GejalaController extends Controller
         return view('dashboard.gejala.index', compact('gejala'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
 
-        $affected = DB::table('gejalas')
+        $affected = DB::table('gejala')
               ->where('id', $id)
               ->update(
                   ['nama' => Str::headline($request->nama),
@@ -116,12 +68,6 @@ class GejalaController extends Controller
         return redirect()->route('gejala.index')->with('info', 'Gejala Gagal diupdate');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

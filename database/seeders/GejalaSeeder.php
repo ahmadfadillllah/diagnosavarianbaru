@@ -15,205 +15,135 @@ class GejalaSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+        DB::table('gejala')->insert([
             'kode' => 'G001',
-            'nama' => 'Sakit Perut',
+            'nama' => 'Demam',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+
+        DB::table('gejala')->insert([
             'kode' => 'G002',
-            'nama' => 'Hilang Selera Makan',
+            'nama' => 'Batuk',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+
+        DB::table('gejala')->insert([
             'kode' => 'G003',
-            'nama' => 'Muntah',
+            'nama' => 'Flu Parah',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+
+        DB::table('gejala')->insert([
             'kode' => 'G004',
-            'nama' => 'Mual',
-        ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
-            'kode' => 'G005',
-            'nama' => 'Nyeri Sendi',
-        ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
-            'kode' => 'G006',
-            'nama' => 'Gangguan Pendengaran',
-        ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
-            'kode' => 'G007',
             'nama' => 'Sakit Kepala',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+
+        DB::table('gejala')->insert([
+            'kode' => 'G005',
+            'nama' => 'Pilek',
+        ]);
+
+        DB::table('gejala')->insert([
+            'kode' => 'G006',
+            'nama' => 'Bersin',
+        ]);
+
+        DB::table('gejala')->insert([
+            'kode' => 'G007',
+            'nama' => 'Mual dan Muntah',
+        ]);
+
+        DB::table('gejala')->insert([
             'kode' => 'G008',
             'nama' => 'Sakit Tenggorokan',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+
+        DB::table('gejala')->insert([
             'kode' => 'G009',
-            'nama' => 'Pilek',
+            'nama' => 'Nyeri Sendi',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+
+        DB::table('gejala')->insert([
             'kode' => 'G010',
-            'nama' => 'Demam',
+            'nama' => 'Sakit Perut',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+
+        DB::table('gejala')->insert([
             'kode' => 'G011',
             'nama' => 'Batuk Kering',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+
+        DB::table('gejala')->insert([
             'kode' => 'G012',
             'nama' => 'Kelelahan',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+
+        DB::table('gejala')->insert([
             'kode' => 'G013',
             'nama' => 'Kehilangan Rasa atau Bau',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+
+        DB::table('gejala')->insert([
             'kode' => 'G014',
             'nama' => 'Hidung Tersumbat',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+        DB::table('gejala')->insert([
             'kode' => 'G015',
             'nama' => 'Kongjungtivitas(mata memerah)',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+        DB::table('gejala')->insert([
             'kode' => 'G016',
             'nama' => 'Berbagai Jenis Ruam Kulit',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+        DB::table('gejala')->insert([
             'kode' => 'G017',
             'nama' => 'Diare',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+        DB::table('gejala')->insert([
             'kode' => 'G018',
             'nama' => 'Pusing',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+        DB::table('gejala')->insert([
             'kode' => 'G019',
             'nama' => 'Sesak Napas',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+        DB::table('gejala')->insert([
             'kode' => 'G020',
             'nama' => 'Kebingungan',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+        DB::table('gejala')->insert([
             'kode' => 'G021',
             'nama' => 'Nyeri atau tekanan terus menerus di dada',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+        DB::table('gejala')->insert([
             'kode' => 'G022',
             'nama' => 'Suhu Tinggi (di atas 38 °C)',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 1,
+        DB::table('gejala')->insert([
             'kode' => 'G023',
             'nama' => 'Menggigil',
         ]);
-
-
-
-
-
-        DB::table('gejalas')->insert([
-            'kategori_id' => 2,
+        DB::table('gejala')->insert([
             'kode' => 'G024',
-            'nama' => 'Batuk',
+            'nama' => 'Gangguan Pendengaran',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 2,
+        DB::table('gejala')->insert([
             'kode' => 'G025',
             'nama' => 'Hidung Berair',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 2,
+        DB::table('gejala')->insert([
             'kode' => 'G026',
-            'nama' => 'Nyeri Otot',
+            'nama' => 'Batuk terus-menerus',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 2,
+        DB::table('gejala')->insert([
             'kode' => 'G027',
-            'nama' => 'Demam',
+            'nama' => 'Suara Sesak',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 2,
+        DB::table('gejala')->insert([
             'kode' => 'G028',
-            'nama' => 'Sakit Kepala',
+            'nama' => 'Sesak Berat',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 2,
+        DB::table('gejala')->insert([
             'kode' => 'G029',
-            'nama' => 'Sakit Tenggorokan',
+            'nama' => 'Hilang Selera Makan',
         ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 2,
-            'kode' => 'G030',
-            'nama' => 'Nafsu Makan Berkurang',
-        ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 2,
-            'kode' => 'G031',
-            'nama' => 'Indra Perasa Berkurang',
-        ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 2,
-            'kode' => 'G032',
-            'nama' => 'Pilek',
-        ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 2,
-            'kode' => 'G033',
-            'nama' => 'Penciuman Berkurang',
-        ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 2,
-            'kode' => 'G034',
-            'nama' => 'Kelelahan',
-        ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 2,
-            'kode' => 'G035',
-            'nama' => 'Suara Serak',
-        ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 2,
-            'kode' => 'G036',
-            'nama' => 'Napas Berat',
-        ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 2,
-            'kode' => 'G037',
-            'nama' => 'Sakit Perut',
-        ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 2,
-            'kode' => 'G038',
-            'nama' => 'Bersin',
-        ]);
-        DB::table('gejalas')->insert([
-            'kategori_id' => 2,
-            'kode' => 'G039',
-            'nama' => 'Batuk Terus-Menerus',
-        ]);
+
     }
 }

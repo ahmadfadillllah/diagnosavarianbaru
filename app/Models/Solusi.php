@@ -9,5 +9,7 @@ class Solusi extends Model
 {
     use HasFactory;
 
+    protected $table = 'solusi';
+
     protected $guarded = [];
 }
