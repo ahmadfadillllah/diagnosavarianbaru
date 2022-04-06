@@ -30,4 +30,23 @@ class HomeController extends Controller
 
         return view('home.viewgejala', compact('gejala'));
     }
+
+    public function cekcontact()
+    {
+        $contact = Contact::all();
+        return view('dashboard.contact.index', compact('contact'));
+    }
+
+    public function destroycontact($id)
+    {
+        //
+        $contact = Contact::find($id);
+        $contact->delete($contact);
+
+        if($contact){
+            return redirect()->route('cekcontact')->with('info', 'contact telah dihapus');
+        }
+
+        return redirect()->route('cekcontact')->with('info', 'contact Gagal dihapus');
+    }
 }

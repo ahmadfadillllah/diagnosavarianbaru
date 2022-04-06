@@ -16,8 +16,11 @@ class DashboardController extends Controller
 
     public function index()
     {
+        $konsultasi = Konsultasi::all();
+        $pakar = User::all()->where('role', 'pakar')->count();
+        $totalkonsul = Konsultasi::all()->count();
 
-        return view('dashboard.index');
+        return view('dashboard.index', compact('konsultasi', 'pakar', 'totalkonsul'));
     }
 
     public function form()

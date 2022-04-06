@@ -50,7 +50,8 @@ Route::post('/form/proses/cek/{id}', [DashboardController::class, 'konsultasicek
 
 Route::group(['middleware' => ['auth', 'checkRole:admin,pakar']], function(){
 
-
+    Route::get('/dashboard/contact', [HomeController::class, 'cekcontact'])->name('cekcontact');
+    Route::get('/dashboard/contact/delete/{id}', [HomeController::class, 'destroycontact']);
 
     Route::get('/dashboard/index', [DashboardController::class, 'index'])->name('dashboard.index');
 

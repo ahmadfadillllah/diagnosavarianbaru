@@ -50,6 +50,7 @@
             <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('klasifikasi.index') }}"><i data-feather="file-text"></i><span class="file-text" data-i18n="Pages">Klasifikasi</span></a>
             <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('solusi.index') }}"><i data-feather="file-text"></i><span class="file-text" data-i18n="Pages">Solusi</span></a>
             <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('gejala.index') }}"><i data-feather="file-text"></i><span class="file-text" data-i18n="Pages">Gejala</span></a>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('cekcontact') }}"><i data-feather="file-text"></i><span class="file-text" data-i18n="Pages">Cek Pesan</span></a>
 
         </ul>
     </div>
