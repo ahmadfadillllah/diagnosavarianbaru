@@ -75,14 +75,14 @@
                                             <td>
                                                 <a href="/dashboard/users/pakar/edit/{{  $item->id }}"
                                                     class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#edituser">Edit</a>
+                                                    data-bs-target="#editpakar{{ $item->id }}">Edit</a>
                                                 <a href="/dashboard/users/pakar/delete/{{  $item->id }}"
                                                     onclick="return confirm('Yakin ingin menghapus gejala tersebut ?')"
                                                     class="btn btn-danger btn-sm">Delete</a>
                                             </td>
 
                                             <!-- Edit User Modal -->
-                                            <div class="modal fade" id="edituser" data-bs-backdrop="static"
+                                            <div class="modal fade" id="editpakar{{ $item->id }}" data-bs-backdrop="static"
                                                 data-bs-keyboard="false" tabindex="-1"
                                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
@@ -94,7 +94,7 @@
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="/dashboard/users/pakar/{{ $item->id }}/update" method="POST">
+                                                            <form action="/dashboard/users/pakar/update/{{ $item->id }}" method="POST">
                                                                 @csrf
                                                                 <div class="mb-3">
                                                                   <label for="exampleInputEmail1" class="form-label">Nama</label>

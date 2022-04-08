@@ -74,7 +74,8 @@ class UsersController extends Controller
 
     public function pakaredit($id)
     {
-        User::find($id);
+        $users = User::find($id);
+        return view('dashboard.users.pakar', compact('users'));
     }
 
     public function pakarupdate(Request $request ,$id)

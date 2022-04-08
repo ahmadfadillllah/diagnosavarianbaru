@@ -75,14 +75,14 @@
                                             <td>
                                                 <a href="/dashboard/users/admin/edit/{{  $item->id }}"
                                                     class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#edituser">Edit</a>
+                                                    data-bs-target="#edituser{{  $item->id }}">Edit</a>
                                                 <a href="/dashboard/users/admin/delete/{{  $item->id }}"
                                                     onclick="return confirm('Yakin ingin menghapus gejala tersebut ?')"
                                                     class="btn btn-danger btn-sm">Delete</a>
                                             </td>
 
                                             <!-- Edit User Modal -->
-                                            <div class="modal fade" id="edituser" data-bs-backdrop="static"
+                                            <div class="modal fade" id="edituser{{  $item->id }}" data-bs-backdrop="static"
                                                 data-bs-keyboard="false" tabindex="-1"
                                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
