@@ -43,15 +43,25 @@
                                     {{ $konsultasi->alamat }} <br>
                                 </p>
                             </div>
-                            {{-- <div class="sign__input-wrapper mb-25">
-                                <strong>Gejala yang nampak pada diri</strong>
-                                <p>{{ $gejala1->nama }} <br>
-                                    {{ $gejala2->nama }}
-                                </p>
-                            </div> --}}
+                            <div class="sign__input-wrapper mb-1">
+                                <strong>Gejala</strong>
+                                @foreach ($gejala as $item)
+                                <p class="mb-1">- {{ $item }}</p>
+                                @endforeach
+                            </div>
+                            <div class="sign__input-wrapper mb-25">
+                                <strong>Tingkat Keparahan</strong>
+                                <p>{{ $keparahan->klasifikasi }}</p>
+                            </div>
+                            <div class="sign__input-wrapper mb-25">
+                                <strong>Kesimpulan/Diagnosa</strong>
+                                <p>{{ $keparahan->keterangan }}</p>
+                            </div>
                                 <div class="sign__input-wrapper mb-25">
-                                    <strong>Hasil Diagnosa</strong>
-                                    <p>{{ $keterangan->solusi }}</p>
+                                    <strong>Solusi</strong>
+                                    @foreach ($keterangan as $item)
+                                    <p class="mb-1">- {{ $item->solusi }}</p>
+                                    @endforeach
                                 </div>
 
 

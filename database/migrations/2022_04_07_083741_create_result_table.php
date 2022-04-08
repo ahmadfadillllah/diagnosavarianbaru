@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKlasifikasiTable extends Migration
+class CreateResultTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateKlasifikasiTable extends Migration
      */
     public function up()
     {
-        Schema::create('klasifikasi', function (Blueprint $table) {
+        Schema::create('result', function (Blueprint $table) {
             $table->id();
-            $table->string('kode')->unique();
-            $table->string('klasifikasi');
-            $table->string('keterangan');
+            $table->unsignedBigInteger('id_konsultasi');
             $table->timestamps();
+
+            $table->foreign('id_konsultasi')->references('id')->on('konsultasi');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateKlasifikasiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('klasifikasi');
+        Schema::dropIfExists('result');
     }
 }
