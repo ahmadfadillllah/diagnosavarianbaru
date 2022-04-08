@@ -16,6 +16,8 @@ class CreateResultTable extends Migration
         Schema::create('result', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_konsultasi');
+            $table->string('keparahan');
+            $table->text('gejala');
             $table->timestamps();
 
             $table->foreign('id_konsultasi')->references('id')->on('konsultasi');

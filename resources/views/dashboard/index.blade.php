@@ -34,7 +34,7 @@
                                     <div class="d-flex">
                                         <img src="{{ asset('vuexy') }}/app-assets/images/avatars/user.png"
                                             class="rounded me-1" height="30" alt="Google Chrome" />
-                                        <h6 class="align-self-center mb-0">{{ $item->nama }}</h6>
+                                        <h6 class="align-self-center mb-0">{{ $item->name }}</h6>
                                     </div>
                                 </div>
                                 @endforeach

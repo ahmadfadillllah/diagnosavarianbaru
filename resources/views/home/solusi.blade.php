@@ -49,6 +49,7 @@
                                 <p class="mb-1">- {{ $item }}</p>
                                 @endforeach
                             </div>
+                            <br>
                             <div class="sign__input-wrapper mb-25">
                                 <strong>Tingkat Keparahan</strong>
                                 <p>{{ $keparahan->klasifikasi }}</p>

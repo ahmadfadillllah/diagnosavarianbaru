@@ -30,8 +30,8 @@
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
                                 data-feather="plus">T</i></button>
                         <div class="dropdown-menu dropdown-menu-end">
-                            <a class="dropdown-item" href="{{ route('register') }}"><i class="me-1"
-                                    data-feather="check-square"></i><span class="align-middle">Tambah User</span></a>
+                            <a class="dropdown-item" href="{{ route('form') }}"><i class="me-1"
+                                    data-feather="check-square"></i><span class="align-middle">Tambah Konsultasi</span></a>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                                             <th>Jenis Kelamin</th>
                                             <th>No. Handphone</th>
                                             <th>Alamat</th>
-                                            <th>Actions</th>
+                                            {{-- <th>Actions</th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -72,13 +72,11 @@
                                             <td>{{ $item->jenis_kelamin }}</td>
                                             <td>{{ $item->no_hp }}</td>
                                             <td>{{ $item->alamat }}</td>
-                                            <td>
-                                                <a href="/dashboard/users/konsultasi/proses/{{  $item->id }}"
-                                                    class="btn btn-info btn-sm">Proses</a>
+                                            {{-- <td>
                                                 <a href="/dashboard/users/konsultasi/delete/{{  $item->id }}"
                                                     onclick="return confirm('Yakin ingin menghapus gejala tersebut ?')"
                                                     class="btn btn-danger btn-sm">Delete</a>
-                                            </td>
+                                            </td> --}}
                                         </tr>
                                         @endforeach
                                     </tbody>

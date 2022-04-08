@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Models\Gejala;
 use App\Models\Result;
 use App\Models\Solusi;
-use Illuminate\Suppandt\Facades\DB;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -48,8 +48,6 @@ class DashboardController extends Controller
             'alamat' => $request->alamat,
         ]);
 
-        Gejala::all();
-
         if($konsultasi){
             return redirect()->route('form.gejala',$konsultasi->id)->with('info', 'Info anda telah masuk, silahkan memilih gejala');
         }
@@ -69,8 +67,9 @@ class DashboardController extends Controller
 
     public function konsultasicek(Request $request, $id)
     {
-        $gejala = $request->daftargejala;
-        // dd($gejala);
+        $gejala = Gejala::query()->whereIn('kode', $request->daftargejala)
+        ->select(['id', 'kode', 'nama'])->get()->pluck('nama');
+
 
         $konsultasi = Konsultasi::find($id);
         if(
@@ -83,9 +82,17 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
 
 
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
         }
 
         if(
@@ -102,7 +109,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -115,7 +131,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -128,7 +153,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -146,7 +180,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -162,7 +205,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -174,7 +226,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -188,7 +249,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -202,7 +272,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -217,7 +296,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -230,7 +318,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -243,7 +340,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -256,7 +362,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -269,7 +384,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -281,7 +405,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -294,7 +427,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -308,7 +450,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -320,7 +471,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -334,7 +494,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -346,7 +515,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -358,7 +536,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -370,7 +557,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -382,7 +578,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -394,7 +599,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -407,7 +621,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -420,7 +643,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -434,7 +666,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -447,7 +688,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -460,7 +710,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -476,7 +735,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -492,7 +760,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -505,7 +782,16 @@ class DashboardController extends Controller
         ){
 
             $keterangan = Solusi::all()->where('kode', 'S001');
-            $keparahan = Solusi::where('id_klasifikasi')->first();
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -530,6 +816,14 @@ class DashboardController extends Controller
             $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
             ->where('id_klasifikasi','D002')->first();
 
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
+
 
         }
 
@@ -543,6 +837,14 @@ class DashboardController extends Controller
             $keterangan = Solusi::all()->where('kode', 'S002');
             $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
             ->where('id_klasifikasi','D002')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -560,6 +862,14 @@ class DashboardController extends Controller
             $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
             ->where('id_klasifikasi','D002')->first();
 
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
+
 
         }
 
@@ -576,6 +886,14 @@ class DashboardController extends Controller
             $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
             ->where('id_klasifikasi','D003')->first();
 
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
+
 
         }
 
@@ -588,6 +906,14 @@ class DashboardController extends Controller
             $keterangan = Solusi::all()->where('kode', 'S003');
             $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
             ->where('id_klasifikasi','D003')->first();
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
 
         }
@@ -613,17 +939,19 @@ class DashboardController extends Controller
             $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
             ->where('id_klasifikasi','D003')->first();
 
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
+
         }
 
-        // else{
-        //     return redirect()->route('form.gejala', $id)->with('info', 'Solusi / Kesimpulan tidak dapat diketuhui');
-        // }
+            return redirect()->route('form.gejala', $id)->with('info', 'Solusi / Kesimpulan tidak dapat diketuhui');
 
-        $result = new Result;
-        $result->id_konsultasi = $id;
-        $result->save();
 
-        return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
 
     }
 
