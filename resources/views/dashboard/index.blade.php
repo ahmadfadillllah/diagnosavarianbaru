@@ -24,7 +24,7 @@
                                     <i data-feather="more-vertical" class="font-medium-3 cursor-pointer"
                                         data-bs-toggle="dropdown"></i>
                                     <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item" href="#">Cetak Laporan</a>
+                                        <a class="dropdown-item" href="{{ route('dashboard.cetak') }}">Cetak Laporan</a>
                                     </div>
                                 </div>
                             </div>

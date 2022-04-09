@@ -9,7 +9,8 @@ use App\Models\User;
 use App\Models\Gejala;
 use App\Models\Result;
 use App\Models\Solusi;
-use Illuminate\Support\Facades\DB;
+use App\Exports\ResultExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DashboardController extends Controller
 {
@@ -22,6 +23,11 @@ class DashboardController extends Controller
         $totalkonsul = Konsultasi::all()->count();
 
         return view('dashboard.index', compact('konsultasi', 'pakar', 'totalkonsul'));
+    }
+
+    public function cetak()
+    {
+        return Excel::download(new ResultExport, 'result.xlsx');
     }
 
     public function form()

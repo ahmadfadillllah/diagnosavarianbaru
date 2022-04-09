@@ -55,6 +55,8 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,pakar']], function(){
 
     Route::get('/dashboard/index', [DashboardController::class, 'index'])->name('dashboard.index');
 
+    Route::get('/dashboard/index/cetak', [DashboardController::class, 'cetak'])->name('dashboard.cetak');
+
     Route::get('/dashboard/profile', [ProfilController::class, 'index'])->name('profil.index');
     Route::post('/dashboard/profile/deactive', [ProfilController::class, 'deactive'])->name('profil.deactive');
 
