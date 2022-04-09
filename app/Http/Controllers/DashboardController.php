@@ -72,6 +72,246 @@ class DashboardController extends Controller
 
 
         $konsultasi = Konsultasi::find($id);
+
+        if(
+            in_array('G001', $request->daftargejala) and
+            in_array('G018', $request->daftargejala) and
+            in_array('G023', $request->daftargejala) and
+            in_array('G019', $request->daftargejala)
+        ){
+
+            $keterangan = Solusi::all()->where('kode', 'S001');
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
+        }
+
+        if(
+            in_array('G001', $request->daftargejala) and
+            in_array('G002', $request->daftargejala) and
+            in_array('G023', $request->daftargejala) and
+            in_array('G007', $request->daftargejala)
+        ){
+
+            $keterangan = Solusi::all()->where('kode', 'S001');
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
+        }
+
+        if(
+            in_array('G001', $request->daftargejala) and
+            in_array('G011', $request->daftargejala) and
+            in_array('G004', $request->daftargejala) and
+            in_array('G018', $request->daftargejala) and
+            in_array('G023', $request->daftargejala) and
+            in_array('G029', $request->daftargejala)
+        ){
+
+            $keterangan = Solusi::all()->where('kode', 'S001');
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
+        }
+
+        if(
+            in_array('G001', $request->daftargejala) and
+            in_array('G007', $request->daftargejala) and
+            in_array('G008', $request->daftargejala) and
+            in_array('G018', $request->daftargejala) and
+            in_array('G012', $request->daftargejala) and
+            in_array('G013', $request->daftargejala) and
+            in_array('G029', $request->daftargejala)
+        ){
+
+            $keterangan = Solusi::all()->where('kode', 'S001');
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
+        }
+
+        if(
+            in_array('G001', $request->daftargejala) and
+            in_array('G002', $request->daftargejala) and
+            in_array('G005', $request->daftargejala) and
+            in_array('G018', $request->daftargejala) and
+            in_array('G023', $request->daftargejala) and
+            in_array('G029', $request->daftargejala)
+        ){
+
+            $keterangan = Solusi::all()->where('kode', 'S001');
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
+        }
+
+        if(
+            in_array('G001', $request->daftargejala) and
+            in_array('G002', $request->daftargejala) and
+            in_array('G007', $request->daftargejala) and
+            in_array('G028', $request->daftargejala)
+        ){
+
+            $keterangan = Solusi::all()->where('kode', 'S001');
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
+        }
+
+        if(
+            in_array('G001', $request->daftargejala) and
+            in_array('G002', $request->daftargejala) and
+            in_array('G007', $request->daftargejala) and
+            in_array('G008', $request->daftargejala) and
+            in_array('G012', $request->daftargejala)
+        ){
+
+            $keterangan = Solusi::all()->where('kode', 'S001');
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
+        }
+
+        if(
+            in_array('G001', $request->daftargejala) and
+            in_array('G011', $request->daftargejala) and
+            in_array('G004', $request->daftargejala) and
+            in_array('G005', $request->daftargejala)
+        ){
+
+            $keterangan = Solusi::all()->where('kode', 'S001');
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
+        }
+
+        if(
+            in_array('G001', $request->daftargejala) and
+            in_array('G012', $request->daftargejala) and
+            in_array('G013', $request->daftargejala) and
+            in_array('G029', $request->daftargejala)
+        ){
+
+            $keterangan = Solusi::all()->where('kode', 'S001');
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
+        }
+
+        if(
+            in_array('G001', $request->daftargejala) and
+            in_array('G007', $request->daftargejala) and
+            in_array('G012', $request->daftargejala) and
+            in_array('G028', $request->daftargejala)
+        ){
+
+            $keterangan = Solusi::all()->where('kode', 'S001');
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
+        }
+
+        if(
+            in_array('G004', $request->daftargejala) and
+            in_array('G005', $request->daftargejala) and
+            in_array('G006', $request->daftargejala) and
+            in_array('G029', $request->daftargejala)
+        ){
+
+            $keterangan = Solusi::all()->where('kode', 'S001');
+            $keparahan = Solusi::join('klasifikasi', 'solusi.id_klasifikasi', '=', 'klasifikasi.kode')
+            ->where('id_klasifikasi','D001')->first();
+
+
+            $result = new Result;
+            $result->id_konsultasi = $id;
+            $result->keparahan = $keparahan->klasifikasi;
+            $result->gejala = collect($gejala)->implode(',');
+            $result->save();
+
+            return view('home.solusi', compact('keterangan', 'konsultasi', 'keparahan', 'gejala'));
+        }
+
         if(
             in_array('G001', $request->daftargejala) and
             in_array('G002', $request->daftargejala) and
