@@ -35,7 +35,7 @@
                 @if (Auth::user()->role == 'admin')
                 <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder">{{ Auth::user()->name }}</span><span class="user-status">{{ Auth::user()->role }}</span></div><span class="avatar"><img class="round" src="{{ asset('vuexy') }}/app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                 @elseif (Auth::user()->role == 'pakar')
-                <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder">{{ Auth::user()->name }}</span><span class="user-status">{{ Auth::user()->role }}</span></div><span class="avatar"><img class="round" src="{{ asset('vuexy') }}/app-assets/images/portrait/small/avatar.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
+                <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder">{{ Auth::user()->name }}</span><span class="user-status">{{ Auth::user()->role }}</span></div><span class="avatar"><img class="round" src="{{ asset('vuexy') }}/app-assets/images/portrait/small/avatar.jpeg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                 @endif
                 </a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
