@@ -16,9 +16,9 @@
                          <li><a href="/dashboard/profile">Profil</a></li>
                          <li><a href="{{ route('gejala') }}">Gejala</a></li>
                          <li class="has-dropdown">
-                           <a href="#">Extra</a>
+                           <a href="#">Informasi</a>
                            <ul class="submenu">
-                              <li><a href="https://covid19.who.int/?gclid=CjwKCAjwrqqSBhBbEiwAlQeqGjOlm65rrLvqYcokn9mndUE4fzbRjzMeaCwp9kHxrdLNGYUHy-TG6xoC9wgQAvD_BwE">Informasi</a></li>
+                              <li><a href="https://www.djkn.kemenkeu.go.id/artikel/baca/13981/Protokol-Kesehatan-5M-dan-Kesehatan-Imun-untuk-Hadapi-Varian-Baru-Covid-19.html">Pencegahan</a></li>
                               <li><a href="{{ route('form') }}">Konsultasi</a></li>
                            </ul>
                         </li>
