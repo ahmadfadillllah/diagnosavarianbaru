@@ -9,6 +9,17 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     //
+
+    public function about()
+    {
+        return view('home.about');
+    }
+
+    public function pencegahan()
+    {
+        return view('home.pencegahan');
+    }
+
     public function contact()
     {
         return view('home.contact');

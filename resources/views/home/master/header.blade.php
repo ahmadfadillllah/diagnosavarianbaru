@@ -13,12 +13,12 @@
                    <nav id="mobile-menu">
                       <ul>
                            <li><a href="/">Beranda</a></li>
-                         <li><a href="/dashboard/profile">Profil</a></li>
+                         <li><a href="/about">Tentang</a></li>
                          <li><a href="{{ route('gejala') }}">Gejala</a></li>
                          <li class="has-dropdown">
                            <a href="#">Informasi</a>
                            <ul class="submenu">
-                              <li><a href="https://www.djkn.kemenkeu.go.id/artikel/baca/13981/Protokol-Kesehatan-5M-dan-Kesehatan-Imun-untuk-Hadapi-Varian-Baru-Covid-19.html">Pencegahan</a></li>
+                              <li><a href="{{ route('pencegahan') }}">Pencegahan</a></li>
                               <li><a href="{{ route('form') }}">Konsultasi</a></li>
                            </ul>
                         </li>

@@ -30,6 +30,10 @@ Route::get('/', function () {
     return view('home.index');
 });
 
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+
+Route::get('/pencegahan', [HomeController::class, 'pencegahan'])->name('pencegahan');
+
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/post-contact', [HomeController::class, 'postcontact'])->name('postcontact');
 
